@@ -28,7 +28,6 @@ public class practiceForm {
 
     @Test
     void fillPracticeForm() {
-        //File test = new File("src/test/resources/screen.jpg");
         open("/automation-practice-form");
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
@@ -57,7 +56,7 @@ public class practiceForm {
         $(".table-responsive").shouldHave(text("9119991919"));
         $(".table-responsive").shouldHave(text("23 August,1988"));
         $(".table-responsive").shouldHave(text("Test"));
-        $(".table-responsive").shouldHave(text("Screenshot_1.jpg"));
+        $(".table-responsive").shouldHave(text("screen.jpg"));
         $(".table-responsive").shouldHave(text("Test"));
         $(".table-responsive").shouldHave(text("Haryana Karnal"));
     }
