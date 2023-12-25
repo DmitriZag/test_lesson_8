@@ -26,7 +26,7 @@ public class practiceForm {
 
     @Test
     void fillPracticeForm() {
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\Дмитрий\\.cache\\selenium\\chromedriver\\win64\\120.0.6099.109\\chromedriver");
+        File test = new File("src/test/resources/Screenshot at Aug 28 13-08-24.png");
         open("/automation-practice-form");
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
@@ -34,6 +34,13 @@ public class practiceForm {
         $("#gender-radio-1").click();
         $("#userNumber").setValue("9119991919");
         $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption(7);
+        $(".react-datepicker__year-select").selectOption(1988);
+        $(".react-datepicker__day react-datepicker__day--023").click();
+        $("#subjectsInput").setValue("Test");
+        $("#hobbies-checkbox-2").click();
+        $("#uploadPicture").uploadFile(test);
+
 
     }
 
