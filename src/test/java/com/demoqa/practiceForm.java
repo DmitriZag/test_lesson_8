@@ -41,7 +41,7 @@ public class practiceForm {
         $(".react-datepicker__day--023").click();
         $("#subjectsInput").setValue("Arts").pressEnter();
         $("#hobbies-checkbox-2").parent().click();
-        $("#uploadPicture").uploadFile(new File("/Users//Dmitry/Desktop/Screenshot_1.jpg"));
+        $("#uploadPicture").uploadFromClasspath("screen.jpg");
         $("#currentAddress").setValue("Test");
         $("#state").click();
         $("#react-select-3-input").setValue("Haryana").pressEnter();
