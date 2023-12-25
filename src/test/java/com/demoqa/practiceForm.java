@@ -28,22 +28,38 @@ public class practiceForm {
 
     @Test
     void fillPracticeForm() {
-        File test = new File("src/test/resources/Screenshot at Aug 28 13-08-24.png");
+        //File test = new File("src/test/resources/screen.jpg");
         open("/automation-practice-form");
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("ivanov88@mail.ru");
-        $("#gender-radio-1").click();
+        $("#gender-radio-1").parent().click();
         $("#userNumber").setValue("9119991919");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(7);
-        $(".react-datepicker__year-select").selectOption(1988);
-        $(".react-datepicker__day react-datepicker__day--023").click();
-        $("#subjectsInput").setValue("Test");
-        $("#hobbies-checkbox-2").click();
-        $("#uploadPicture").uploadFile(test);
+        $(".react-datepicker__year-select").selectOption(88);
+        $(".react-datepicker__day--023").click();
+        $("#subjectsInput").setValue("Arts").pressEnter();
+        $("#hobbies-checkbox-2").parent().click();
+        $("#uploadPicture").uploadFile(new File("/Users//Dmitry/Desktop/Screenshot_1.jpg"));
+        $("#currentAddress").setValue("Test");
+        $("#state").click();
+        $("#react-select-3-input").setValue("Haryana").pressEnter();
+        $("#city").click();
+        $("#react-select-4-input").setValue("Karnal").pressEnter();
+        $("#submit").click();
 
-
+//check
+        $(".modal-header").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text("Ivan Ivanov"));
+        $(".table-responsive").shouldHave(text("ivanov88@mail.ru"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("9119991919"));
+        $(".table-responsive").shouldHave(text("23 August,1988"));
+        $(".table-responsive").shouldHave(text("Test"));
+        $(".table-responsive").shouldHave(text("Screenshot_1.jpg"));
+        $(".table-responsive").shouldHave(text("Test"));
+        $(".table-responsive").shouldHave(text("Haryana Karnal"));
     }
 
 }
