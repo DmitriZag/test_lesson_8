@@ -11,6 +11,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 import com.codeborne.selenide.Configuration;
 
+import java.io.File;
+
 public class practiceForm {
 
     @BeforeAll
