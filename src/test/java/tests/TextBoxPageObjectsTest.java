@@ -5,7 +5,7 @@ import pages.TextBoxPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class TextBoxTest extends TestBase {
+public class TextBoxPageObjectsTest extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
     }
