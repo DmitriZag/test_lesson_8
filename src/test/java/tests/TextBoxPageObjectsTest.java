@@ -8,10 +8,11 @@ import static com.codeborne.selenide.Selenide.open;
 public class TextBoxPageObjectsTest extends TestBase {
 
     TextBoxPage textBoxPage = new TextBoxPage();
-    }
 
-    @Test
-    void fillFormTest() {
+    {
+
+        @Test
+        void fillFormTest () {
         open("/text-box");
         textBoxPage.openPage()
                 .setName("Alex")
@@ -24,5 +25,6 @@ public class TextBoxPageObjectsTest extends TestBase {
                 .checkOutput("email", "alex@egorov.com")
                 .checkOutput("currentAddress", "Some street 1")
                 .checkOutput("permanentAddress", "Another street 1");
+    }
     }
 }

@@ -35,7 +35,6 @@ public class TextBoxPage {
         submitInput.click();
         return this;
     }
-}
 
     public TextBoxPage checkOutput(String id, String value) {
         $("#output #" + id).shouldHave(text(value));
