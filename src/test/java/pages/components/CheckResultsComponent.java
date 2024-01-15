@@ -1,14 +1,17 @@
 package pages.components;
 
+import com.codeborne.selenide.SelenideElement;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CheckResultsComponent {
-        public void checkResult(String field, String value) {
-            $(".modal-header").shouldHave(text("Thanks for submitting the form"));
+   private SelenideElement tableResult = $(".table-responsive");
 
-            $(".table-responsive").$(byText(field)).parent()
+        public void checkResult(String field, String value) {
+
+            tableResult.$(byText(field)).parent()
                     .shouldHave(text(value));
         }
 }
