@@ -87,7 +87,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setPicture(String value) {
-        pictureInput.uploadFromClasspath("screen.jpg");
+        pictureInput.uploadFromClasspath(value);
 
         return this;
     }
