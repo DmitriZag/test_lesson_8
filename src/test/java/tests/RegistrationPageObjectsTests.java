@@ -1,5 +1,6 @@
 package tests;
 
+import data.RandomData;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -7,58 +8,55 @@ import pages.RegistrationPage;
 public class RegistrationPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
+    RandomData randomData = new RandomData();
 
     @Test
     void fillPracticeFormTest() {
 
         registrationPage.openPage()
-                .setFirstName("Ivan")
-                .setLastName("Ivanov")
-                .setEmail("ivanov88@mail.ru")
-                .setGender("Male")
-                .setUserNumber("9119991919")
-                .setDateOfBirth("23", "August", "1988")
-                .setSubjects("Arts")
-                .setHobbies("Music")
+                .setFirstName(randomData.firstName)
+                .setLastName(randomData.lastName)
+                .setEmail(randomData.email)
+                .setGender(randomData.gender)
+                .setUserNumber(randomData.phone)
+                .setDateOfBirth(randomData.birthDay, randomData.birthMonth, randomData.birthYear)
+                .setSubjects(randomData.subjects)
+                .setHobbies(randomData.hobbies)
                 .setPicture("screen.jpg")
-                .setCurrentAddress("Test")
-                .setState("Haryana")
-                .setCity("Karnal")
+                .setCurrentAddress(randomData.address)
+                .setState(randomData.state)
+                .setCity(randomData.city)
                 .submit();
 
-        registrationPage.checkResult("Student Name", "Ivan Ivanov")
-                .checkResult("Student Email", "ivanov88@mail.ru")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "9119991919")
-                .checkResult("Date of Birth", "23 August,1988")
-                .checkResult("Subjects", "Arts")
-                .checkResult("Hobbies", "Music")
-                .checkResult("Picture", "screen.jpg")
-                .checkResult("Address", "Test")
-                .checkResult("State and City", "Haryana Karnal");
+        registrationPage.checkResult("Student Name", randomData.firstName + " " + randomData.lastName)
+                .checkResult("Student Email", randomData.email)
+                .checkResult("Gender", randomData.gender)
+                .checkResult("Mobile", randomData.phone)
+                .checkResult("Date of Birth", randomData.birthDay + " " + randomData.birthMonth + "," + randomData.birthYear)
+                .checkResult("Subjects", randomData.subjects)
+                .checkResult("Hobbies", randomData.hobbies)
+                .checkResult("Picture","screen.jpg")
+                .checkResult("Address", randomData.address)
+                .checkResult("State and City", randomData.state + " " + randomData.city);
 
     }
 
     @Test
     void fillRequiredPracticeFormTest() {
         registrationPage.openPage()
-                .setFirstName("Ivan")
-                .setLastName("Ivanov")
-                .setGender("Male")
-                .setUserNumber("9119991919")
-                .setDateOfBirth("23", "August", "1988")
+                .setFirstName(randomData.firstName)
+                .setLastName(randomData.lastName)
+                .setEmail(randomData.email)
+                .setGender(randomData.gender)
+                .setUserNumber(randomData.phone)
+                .setDateOfBirth(randomData.birthDay, randomData.birthMonth, randomData.birthYear)
                 .submit();
 
-        registrationPage.checkResult("Student Name", "Ivan Ivanov")
-                .checkResult("Student Email", "\t")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "9119991919")
-                .checkResult("Date of Birth", "23 August,1988")
-                .checkResult("Subjects", "\t")
-                .checkResult("Hobbies", "\t")
-                .checkResult("Picture", "\t")
-                .checkResult("Address", "\t")
-                .checkResult("State and City", "\t")
+        registrationPage.checkResult("Student Name", randomData.firstName + " " + randomData.lastName)
+                .checkResult("Student Email", randomData.email)
+                .checkResult("Gender", randomData.gender)
+                .checkResult("Mobile", randomData.phone)
+                .checkResult("Date of Birth", randomData.birthDay + " " + randomData.birthMonth + "," + randomData.birthYear)
                 .registrationSuccessCheck();
     }
 
